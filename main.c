@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include <raylib.h>
 
 #define STB_PERLIN_IMPLEMENTATION
-#include "stb_perlin.h"        // Required for: stb_perlin_fbm_noise3
+#include "stb_perlin.h" // Required for: stb_perlin_fbm_noise3
 
 static int screenWidth = 800;
 static int screenHeight = 600;
@@ -13,7 +12,8 @@ int main(void) {
   float offsetY = 50;
 
   SetTargetFPS(60);
-  // GeneratePerlinTexture(texture, screenWidth, screenHeight, offsetX, offsetY);
+  // GeneratePerlinTexture(texture, screenWidth, screenHeight, offsetX,
+  // offsetY);
   while (!WindowShouldClose()) {
 
     BeginDrawing();
@@ -22,7 +22,7 @@ int main(void) {
     for (int i = 0; i < screenWidth; i++) {
       offsetX += 0.01;
       float p = stb_perlin_noise3(offsetX, offsetY, 1.0f, 0, 0, 0);
-      DrawPixel(i, (screenHeight/2) + p * 50, RED);
+      DrawPixel(i, ((float)screenHeight / 2) + p * 50, RED);
     }
     start += 0.07;
     EndDrawing();
