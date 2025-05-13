@@ -12,17 +12,14 @@ int main(void) {
   float offsetY = 50;
 
   SetTargetFPS(60);
-  // GeneratePerlinTexture(texture, screenWidth, screenHeight, offsetX,
-  // offsetY);
   while (!WindowShouldClose()) {
-
     BeginDrawing();
     ClearBackground(RAYWHITE);
     float offsetX = start;
     for (int i = 0; i < screenWidth; i++) {
       offsetX += 0.01;
       float p = stb_perlin_noise3(offsetX, offsetY, 1.0f, 0, 0, 0);
-      DrawPixel(i, ((float)screenHeight / 2) + p * 50, RED);
+      DrawPixel(i, ((float)screenHeight / 4) + p * 50, RED);
     }
     start += 0.07;
     EndDrawing();
